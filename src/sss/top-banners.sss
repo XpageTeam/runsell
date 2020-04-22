@@ -1,0 +1,110 @@
+.top-banners
+	position: relative
+
+	&__cont
+		padding: 30px 0 35px
+
+	&__slider
+		overflow: hidden
+
+	.swiper
+
+		&-slide
+			width: auto
+
+		&-button
+
+			&-prev, &-next
+				position: absolute
+				top: calc(50% - 20px)
+				border-radius: 50%
+				border: none
+				display: block
+				size: 40px
+				transition: background .3s ease
+				background: #fff
+				z-index: 2
+				margin: 0
+
+				&:after
+					display: none
+
+				&:hover, &:focus
+					background: var(--main-color)
+
+					&:before
+						border-color: #fff
+
+				&:before
+					position: absolute
+					content: ""
+					size: 8px
+					border-left: 2px solid #cacacc
+					border-bottom: 2px solid #cacacc
+					transform: rotate(45deg)
+					top: calc(50% - 4px)
+					left: calc(50% - 2px)
+					transition: border-color .3s ease
+
+			&-prev
+				left: -20px
+
+			&-next
+				right: -20px
+				transform: rotate(180deg)
+
+.top-slide
+	position: relative
+	display: block
+
+	&__img
+		display: block
+
+	&:after, &__desc
+		position: absolute
+		left: 0
+		bottom: 0
+
+	&:after
+		content: ""
+		size: 100%
+		background: rgba(0,0,0, .2)
+		transition: background .3s ease
+
+	&:hover, &:focus
+
+		&:after
+			background: transparent
+
+	&__desc
+		z-index: 2
+		color: #fff
+		font-weight: 400
+		padding: 0 0 35px 35px
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+
+	&__label
+		font-size: 14px
+		line-height: 1
+		padding: 7px 15px 9px
+		border-radius: 2px
+		letter-spacing: 0.05em
+
+		&:not(:last-child)
+			margin-bottom: 11px
+
+		&--sale
+			background: var(--sale-label-color)
+
+		&--new
+			background: var(--new-label-color)
+
+		&--actual
+			background: var(--actual-label-color)
+
+	&__title
+		font-size: 20px
+		line-height: 1
+		letter-spacing: 0.08em

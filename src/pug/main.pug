@@ -6,9 +6,87 @@ html(lang="ru")
 		include inc/head.pug
 		include inc/css.pug
 	body.main.loading
+		.mobile-menu
 		include inc/header.pug
 		main#content
-			.wrapper
-				
+			.top-banners__cont
+				.wrapper
+					.top-banners
+						.top-banners__slider
+							.swiper-wrapper
+								- for (let j = 0; j < 2; j++)
+									each slide, i in [{label: "Скидки", title: "На все 50%"}, {label: "Новые поступления", title: "Мужские кросовки"}, {label: "Актуальные категории", title: "Рюкзаки и сумки"}, ]
+										.swiper-slide
+											a.top-slide(href="#")
+												img.top-slide__img(src="img/photos/top-slide-img-"+(i+1)+".jpg", alt=slide.title)
+												.top-slide__desc
+													if (slide.label == "Скидки")
+														.top-slide__label.top-slide__label--sale=slide.label
+													else if (slide.label == "Новые поступления")
+														.top-slide__label.top-slide__label--new=slide.label
+													else
+														.top-slide__label.top-slide__label--actual=slide.label
+													.top-slide__title=slide.title
+						.top-banners__nav
+							.swiper-button-prev
+							.swiper-button-next
+						.top-banners__dots
+							.swiper-pagination
+			.main-catalog__cont
+				.wrapper
+					.main-catalog
+						.main-catalog__title-cont
+							.main-catalog__title Популярные товары
+							.main-catalog__btn
+								a.default-btn(href="#") Перейти
+						.main-catalog__list
+							.main-cat
+								each item, i in [{title: "Куртка утепленная SHORT PADDED JACKET", price: "3 999"}, {title: "ELLA BUCKLE TRIM BALLERINA", price: "1 799"}, {title: "Куртка утепленная SHORT PADDED JACKET", price: "3 999"}, {title: "Балетки ELLA BUCKLE TRIM BALLERINA", price: "1 799"}, ]
+									.main-cat__one
+										.cat-item
+											a.cat-item__img(href="#")
+												img(src="img/photos/cat-item-"+i+".jpg", alt=item.title)
+											.cat-item__links
+												if (i == 0)
+													.cat-item__links-left
+														a.compare-link.added(href="#" title="Добавить к сравнению")
+													.cat-item__links-right
+														a.favorite-link.added(href="#" title="В избранное")
+												else
+													.cat-item__links-left
+														a.compare-link(href="#" title="Добавить к сравнению")
+													.cat-item__links-right
+														a.favorite-link(href="#" title="В избранное")
+											.cat-item__desc
+												.cat-item__title
+													a(href="#")=item.title
+												.cat-item__price
+													.cat-price=item.price+" руб"
+											.cat-item__btns
+												.cat-item__btns-primary
+													a.default-btn(href="#") Купить
+			.news-block__cont
+				.wrapper
+					.news-block
+						.news-block__big
+							a.news-big-item(href="#")
+								img.news-big-item__img(src="img/photos/big-news-img.jpg", alt="Nike Air Max 98 & Air Zoom Spiridon: нулевой меридиан")
+								.news-big-item__title 
+									span Nike Air Max 98 & Air Zoom Spiridon: нулевой меридиан
+						.news-block__text
+							.nb-text
+								.nb-text__title О компании
+								.nb-text__text
+									p Интернет-магазин Wildberries – это доступные цены, широкий, регулярно обновляемый ассортимент. В онлайн-каталоге Wildberries представлено около 35 000 едущих брендов женской, мужской и детской одежды и обуви. Покупателям предлагается электроника, книжная продукция, детские товары. В интернет-магазине можно приобрести продукцию для дома, продукты питания, товары для красоты, ювелирные изделия, игрушки. Для удобства пользования онлайн-каталог поделен на разделы, все товары можно сортировать по ряду критериев: цена, материал изготовления, сезонность, бренд.
+						//- .news-block__list
+							- for (let i = 0; i < 2; i++)
+								.news-block__one
+									a.news-item(href="#")
+										.news-item__desc
+											.news-item__date 20.08
+											.news-item__text
+												p Рассказываем, как бренд вдохновлялся гринвичским временем для новых расцветок Air Max 98 и Air Zoom Spiridon
+										.news-item__btn
+											.news-item-fake-btn
 		include inc/footer.pug
 		include inc/scripts.pug

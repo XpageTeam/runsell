@@ -1,32 +1,23 @@
 module.exports = {
-	formats: 'local woff woff2',
+	formats: 'local woff',
 	display: "swap",
 	custom: {
-		"Montserat": {
+		"GothamPro": {
 			variants: {
 				normal: {
 					300: {
 						url: {
-							woff: "../fonts/montserrat-light.woff",
-							woff2: "../fonts/montserrat-light.woff2"
+							woff: "../fonts/Light/GothamPro-Light.woff",
 						}
 					},
 					400: {
 						url: {
-							woff: "../fonts/montserrat-regular.woff",
-							woff2: "../fonts/montserrat-regular.woff2"
+							woff: "../fonts/Reg/GothamPro.woff",
 						}
 					},
-					500: {
-						url: {
-							woff: "../fonts/montserrat-medium.woff",
-							woff2: "../fonts/montserrat-medium.woff2"
-						}
-					}, 
 					700: {
 						url: {
-							woff: "../fonts/montserrat-bold.woff",
-							woff2: "../fonts/montserrat-bold.woff2"
+							woff: "../fonts/Bold/GothamPro-Bold.woff",
 						}
 					}
 				}
