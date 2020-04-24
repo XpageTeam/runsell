@@ -5,6 +5,7 @@ const $ = require("gulp-load-plugins")(),
 	browserSync = require("browser-sync").create(),
 	gutil = require("gulp-util"),
 	sourcemaps = require("gulp-sourcemaps"),
+	sftp = require("gulp-sftp-up4"),
 	ftp = require("vinyl-ftp");
 
 let process = require("child_process"),
@@ -79,7 +80,10 @@ gulp.task("postcss", _ =>
 
 gulp.task("pug", _ => 
 	gulp.src("src/pug/*.pug")
-		.pipe($.pug({pretty: true}))
+		.pipe($.pug({
+			pretty: true,
+			basedir: "./src/pug"
+		}))
 		.pipe(gulp.dest("docs"))
 );
 
@@ -119,18 +123,33 @@ gulp.task('imagemin', () =>
 
 
 gulp.task("deploy:css", () => 
-	gulp.src("docs/css/*.*", {since: gulp.lastRun("postcss")})
-		.pipe(server_conn.dest(remotePathCss))
+	gulp.src("docs/css/*.*")
+	.pipe(sftp({
+		host: connectionSettings.server.host,
+		user: connectionSettings.server.user,
+		key: "./.ssh/id_rsa",
+		remotePath: remotePathCss
+	}))
 );
 
 gulp.task("deploy:js", () => 
 	gulp.src("docs/js/*.*", {since: gulp.lastRun("deploy:js")})
-		.pipe(server_conn.dest(remotePathJs))
+		.pipe(sftp({
+			host: connectionSettings.server.host,
+			user: connectionSettings.server.user,
+			key: "./.ssh/id_rsa",
+			remotePath: remotePathJs
+		}))
 );
 
 gulp.task("deploy:img", () => 
 	gulp.src("docs/img/**/*", {since: gulp.lastRun("deploy:img")})
-		.pipe(server_conn.dest(remotePathImg))
+		.pipe(sftp({
+			host: connectionSettings.server.host,
+			user: connectionSettings.server.user,
+			key: "./.ssh/id_rsa",
+			remotePath: remotePathImg
+		}))
 );
 
 gulp.task("deploy:docs", _ => 

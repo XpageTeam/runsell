@@ -1,3 +1,34 @@
+aside.mobile-menu__cont
+	.mobile-menu
+		nav.mobile-menu__menu
+			ul.menu
+				li.menu__el
+					a.menu__link.active(href="#") Новинки
+				each title in ["Бренды", " Мужское", "Женское", "Детское", "Аксессуары", "Скидки", ]
+					li.menu__el
+						a.menu__link(href="#")=title
+				each col, i in [{title: "Компания", menu: ["О компании", "Новости", "Сотрудники", "Вакансии", "Магазины", "Политика", ]}, {title: "Информация", menu: ["Помощь", "Условия оплаты", "Условия доставки", "Гарантия на товар", "Возможности",]}, {title: "Помощь", menu: ["Блог", "Вопрос-ответ", "Бренды", "Обзоры"]}]
+					li.menu__el.menu__el--submenu
+						span.menu__link=col.title
+						ul.submenu
+							li.submenu__back Назад
+							each title in col.menu
+								li
+									a.submenu__link.menu__link(href="#")=title
+		.mobile-menu__contacts
+			.f-contacts
+				.f-contacts__address
+					address.f-address г. Челябинск 
+						br
+						|  ул. Лермонтова 21, 3 этаж, офис 4
+				.f-contacts__phones
+					address.f-phones
+						a(href="tel: +7(000)0000010") +7 (000) 000-00-10
+		.mobile-menu__soc
+			.soc
+				each socName in ["fb", "twt", "yt", "vk", "inst", "mail", "gp", "ok", ]
+					a.soc__link(href="#")
+						img(src="img/photos/ico-"+socName+".png")
 header.head
 	.wrapper
 		.head__wrap

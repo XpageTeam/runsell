@@ -1,0 +1,68 @@
+.raiting
+	display: flex
+	align-items: center
+
+	&__counter
+		margin-right: 15px
+		margin-top: -3px
+
+	&__label
+		font-size: 14px
+
+	&--disabled
+
+		.rc
+
+			&__list
+				display: flex
+
+				&-hearth
+					pointer-events: none
+
+.rc
+
+	&__list
+		display: flex
+		pointer-events: none
+
+		&-hearth
+			flex: none
+			overflow: hidden
+			width: 8px
+			cursor: pointer
+			pointer-events: all
+
+			svg
+				max-width: none
+				size: 17px 19px
+				display: block
+
+			&:nth-child(even)
+				display: flex
+				flex-direction: column
+				// justify-content: center
+				align-items: flex-end
+				
+				&:not(:last-child)
+					padding-right: 5px
+					box-sizing: content-box
+
+		&:not(:hover) &-hearth:not(.active)
+
+			path
+				fill: transparent
+				stroke: var(--border-color)
+
+		&:hover &-hearth
+
+			path
+				fill: var(--main-color)
+				stroke: transparent
+
+			&:hover
+
+				~ .rc__list-hearth
+
+					path
+						fill: transparent
+						stroke: var(--border-color)

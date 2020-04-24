@@ -1,0 +1,48 @@
+.paginator
+	display: flex
+
+	&-cont
+		display: flex
+		justify-content: center
+		margin-top: 60px
+
+	li
+
+		&:not(:last-child)
+			margin-right: 8px
+
+	&__link
+		size: 30px
+		border-radius: 50%
+		text-align: center
+		display: block
+		line-height: 34px
+		font-size: 14px
+		transition: color .3s ease, background-color .3s ease
+
+		&:hover, &.active
+			color: #fff var(--main-color)
+
+
+	&__arrow
+
+		&:nth-child(1)
+			transform: rotate(180deg)
+			
+		a
+			position: relative
+			size: 30px
+			border-radius: 50%
+			display: block
+			transition: background .3s ease
+
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				size: 8px
+				top: calc(50% - 4px)
+				left: calc(50% - 4px)
+				border-top: 1px solid #000
+				border-right: 1px solid #000
+				transform: rotate(45deg)

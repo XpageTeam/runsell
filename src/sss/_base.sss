@@ -39,13 +39,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 
 		&:-ms-input-placeholder
 			opacity: 0
-
-/*
-input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea, select
-	border-radius: 0
-
-*/
-
+			
 
 *, *:after, *:before
 	box-sizing: border-box
@@ -57,7 +51,7 @@ address
 	font-weight: inherit
 
 body
-	min-width: 1000px
+	min-width: 320px
 	line-height: calc(22 / 14)
 	font-family: var(--default-font)
 	font-weight: 400
@@ -90,6 +84,7 @@ select
 
 #content
 	flex: 1 1 auto
+	background: #fff
 
 .inner-content
 	flex: 1 1 auto
@@ -105,7 +100,7 @@ a
 		white-space: nowrap
 
 	&:not([class])
-		color: var(--main-color-darken)
+		color: var(--main-color)
 		border-bottom: 1px solid transparent
 
 		&:hover, &:focus
@@ -145,4 +140,22 @@ li
 			transform: rotateZ(180deg)
 
 		&--right
-			right: 0	
+			right: 0
+
+.soc
+	display: flex
+	flex-wrap: wrap
+	margin: 0 0 -13px -11px
+	max-width: 184px
+	
+	&__link
+		display: inline-flex
+		justify-content: center
+		align-items: center
+		border-radius: 50%
+		size: 35px
+		background-color: #fff
+		margin: 0 0 13px 11px
+
+		&:hover, &:focus
+			border-color: $main-color

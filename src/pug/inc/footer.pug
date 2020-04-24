@@ -18,19 +18,15 @@ footer.footer
 				.footer__soc
 					.soc
 						each socName in ["fb", "twt", "yt", "vk", "inst", "mail", "gp", "ok", ]
-							a.soc__link(href="#" style='background-image: url("img/photos/ico-'+socName+'.png")')
+							a.soc__link(href="#")
+								img(src="img/photos/ico-"+socName+".png")
 			.footer__col.footer__col--contacts
 				.footer__col-title Наши контакты
 				.footer__contacts
 					.f-contacts
 						.f-contacts__phones
 							address.f-phones
-								.f-phones__current
-									a(href="tel: +7(000)0000010") +7 (000) 000-00-10
-								ul.f-phones__list
-									- for (let i = 0; i < 3; i++)
-										li.f-phones__el
-											a(href="tel: +7(000)0000010") +7 (000) 000-00-10
+								a(href="tel: +7(000)0000010") +7 (000) 000-00-10
 						.f-contacts__address
 							address.f-address
 								p Челябинск
@@ -39,7 +35,7 @@ footer.footer
 			.footer__copy
 				.copy
 					span 2018 © Xpage: Name Company – универсальный интернет-магазин
-			.footer__feddback
+			.footer__feedback
 				.feedback
 					.feedback__title Мы всегда на связи
 					.feedback__btn

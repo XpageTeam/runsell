@@ -1,0 +1,90 @@
+.catalog-list
+
+	&__item
+
+		&:not(:first-child)
+			margin-top: -1px
+	
+.cl-item
+	border: 1px solid var(--border-color)
+	display: flex
+	align-items: center
+	padding: 50px 75px 34px 40px
+	position: relative
+
+	&:hover, &:focus-within
+		border-color: var(--main-color)
+		z-index: 1
+
+	&__imgs
+		flex: none
+		margin-right: 25px
+		width: 161px
+
+	&__desc
+		flex: 1 1 auto
+		margin-right: 25px
+
+		&-title
+			font-size: em(14)
+
+		&-text
+			font-size: 12px
+			color: rgba(0, 0, 0, .5)
+			margin: 15px 0 0 
+
+	&__buy
+		flex: none
+		width: 228px
+		display: grid
+		grid-template-areas: "price price" "counter btn"
+		grid-template-columns: repeat(2, 1fr)
+		gap: 22px 14px
+
+		&-price
+			grid-area: price
+
+		&-counter
+			grid-area: counter
+
+		&-btn
+			grid-area: btn
+
+			.default-btn
+				width: 100%
+
+.cli-slider
+	overflow: hidden
+
+	.swiper
+
+		&-slide
+			height: auto
+			display: flex
+			justify-content: center
+			align-items: center
+			background: #fff
+
+		&-pagination
+			position: static
+			display: flex
+			align-items: center
+
+			&-bullet
+				opacity: 1
+				size: 27px 2px
+				background-color: #E0E0E0
+				transition: background-color .3s ease
+				border-radius: 1px
+
+				&-active
+					background-color: var(--main-color)
+
+				&:not(:last-child)
+					margin-right: 5px
+
+	&__dots
+		display: flex
+		justify-content: center
+		margin: 20px 0 0
+

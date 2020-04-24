@@ -1,0 +1,36 @@
+.counter
+	display: inline-flex
+	border: 1px solid var(--border-color)
+	transition: border-color .3s ease
+	height: 30px
+	border-radius: 2px
+
+	&:hover, &:focus-within
+		border-color: var(--main-color)
+
+	&__input
+		size: 30px 100%
+		border: none
+		text-align: center
+
+	&__link
+		size: 30px 100%
+		display: block
+		position: relative
+
+		&:after, &:before
+			position: absolute
+			content: ""
+			background-color: #000
+
+		&:before
+			size: 8px 1px
+			top: calc(50% - 1px)
+			left: calc(50% - 4px)
+
+		&--plus
+
+			&:after
+				size: 1px 8px
+				top: calc(50% - 4px)
+				left: calc(50% - 1px)

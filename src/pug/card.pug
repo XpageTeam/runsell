@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Карточка
+		include inc/head.pug
+		include inc/css.pug
+	body.inner.loading
+		include inc/header.pug
+		main#content
+			.inner-content
+				.inner-content__title
+					.wrapper
+						include /mixins/title-block.pug
+						+titleBlock(["Главная", "Женское", "Обувь женская","Кросовки ELLA BUCKLE TRIM BALLERINA"], false)
+				.inner-content__content
+					.wrapper
+						.card
+							.card__top
+								.card__top-slider
+									.card-slider
+										.card-slider__big
+											.csb-slider
+												.swiper-wrapper
+													- for (let i = 0; i < 6; i++)
+														.swiper-slide
+															a.csb-slider__slide.fancybox(data-fancybox="card-imgs" href="img/photos/card-img.jpg")
+																img.swiper-lazy(loading="lazy" data-src="img/photos/card-img.jpg", alt="Кросовки ELLA BUCKLE TRIM BALLERINA")
+																.swiper-lazy-preloader
+												.csb-slider__dots
+													.swiper-pagination
+										<!-- Не выводить навигационный слайдер если в нём меньше двух картинок -->
+										.card-slider__thumbs
+											.cs-thumbs
+												.cs-thumbs__slider
+													.swiper-wrapper
+														- for (let i = 0; i< 6; i++)
+															.swiper-slide
+																img.swiper-lazy(loading="lazy" data-src="img/photos/thumb-img.jpg")
+																.swiper-lazy-preloader
+												.cs-thumbs__nav
+													.swiper-button-prev
+													.swiper-button-next
+								.card__top-desc
+									.card-desc
+										.card-desc__title 
+											h1 Кросовки ELLA BUCKLE TRIM BALLERINA  
+										.card-desc__raiting
+											.raiting.raiting--disabled
+												.raiting__counter
+													.rc
+														.rc__list
+															.rc__list-hearth.active
+																include ../img/ico-hearth.svg
+															.rc__list-hearth.active
+																include ../img/ico-hearth.svg
+															.rc__list-hearth.active
+																include ../img/ico-hearth.svg
+															.rc__list-hearth.active
+																include ../img/ico-hearth.svg
+															.rc__list-hearth.active
+																include ../img/ico-hearth.svg
+															.rc__list-hearth.active
+																include ../img/ico-hearth.svg
+															.rc__list-hearth
+																include ../img/ico-hearth.svg
+															.rc__list-hearth
+																include ../img/ico-hearth.svg
+															.rc__list-hearth
+																include ../img/ico-hearth.svg
+															.rc__list-hearth
+																include ../img/ico-hearth.svg
+														.rc__input
+															input(type="hidden" value="3")
+												.raiting__label 20 оценок
+										.card-desc__spec
+											.card-spec
+												.card-spec__spec
+													.card-spec__spec-title Характеристики:
+													.card-spec__spec-text
+														.sc-text
+															.sc-text__row
+																.sc-text__row-label Код товара
+																.sc-text__row-text 1234567
+															.sc-text__row
+																.sc-text__row-label Артикул
+																.sc-text__row-text Т02887
+															.sc-text__row
+																.sc-text__row-label Бренд
+																.sc-text__row-text Ellf Buckle
+															.sc-text__row
+																.sc-text__row-label Материал
+																.sc-text__row-text Синтетика
+												.card-spec__price
+													.csp
+														.csp__prices
+															.cat-price 3 990 руб.
+															.cat-price.cat-price--old 4 550 руб.
+														.csp__counter
+															.counter
+																a.counter__link.counter__link--minus(href="#")
+																input.counter__input(type="tel" value="1")
+																a.counter__link.counter__link--plus(href="#")
+														.csp__btn
+															a.default-btn(href="#")
+																include ../img/ico-cart.svg
+																span.default-btn__text В корзину
+											.card-sizes
+												.card-sizes__sizes
+													.card-spec__spec-title Размер:
+													.sizes
+														.sizes__item
+															input.sizes__item-input(type="radio" name="sizes" value="34")
+															label.sizes__item-label 34
+														.sizes__item
+															input.sizes__item-input(type="radio" name="sizes" value="39")
+															label.sizes__item-label 39
+														.sizes__item
+															input.sizes__item-input(type="radio" name="sizes" value="41" checked="")
+															label.sizes__item-label 41
+												.card-sizes__color
+													.card-spec__spec-title Цвет:
+													.colors-filter
+														each color in ["000", "D6E3FF", "A6A671", "7C6254", "CCAC7B", "982222", "28502C", "510000", "47604D", ]
+															.colors-filter__item
+																.color-checkbox
+																	input.color-checkbox__input(type="radio" name="colors")
+																	label.color-checkbox__label(style="background-color: #"+color)
+										.card-desc__tabs
+											<!-- Пока выводить только писание, остальные вкладки появятся позже -->
+											.tabs
+												.tabs__top
+													.tabs__tab.active(data-id="1") Описание
+													.tabs__tab(data-id="2") Доставка
+													.tabs__tab(data-id="3") Оплата
+													.tabs__tab(data-id="4") Наличие
+													.tabs__tab(data-id="5") Дополнительно
+													.tabs__tab(data-id="6") Отзывы
+												.tabs__content.active(data-id="1")
+													.tabs__content-btn
+														a.tab-btn(href="#") Описание
+													.tabs__content-content
+														p Беговые кроссовки оптимально поддерживают стопу без ущерба комфорту. Непромокаемая дышащая мембрана защищает от лишней влаги, а высокая подошва амортизирует при беге.
+														p Главные преимущества кроссовок в легкости и агрессивном сцеплении подошвы с поверхностями. Рыхлая земля, мокрый асфальт или пересеченная местность — не помеха пробежке. Преодолевайте разные препятствия с удобной обувью!
+												.tabs__content(data-id="2")
+													.tabs__content-btn
+														a.tab-btn(href="#")
+													.tabs__content-content
+												.tabs__content(data-id="3")
+													.tabs__content-btn
+														a.tab-btn(href="#")
+													.tabs__content-content
+												.tabs__content(data-id="4")
+													.tabs__content-btn
+														a.tab-btn(href="#")
+													.tabs__content-content
+												.tabs__content(data-id="5")
+													.tabs__content-btn
+														a.tab-btn(href="#")
+													.tabs__content-content
+												.tabs__content(data-id="6")
+													.tabs__content-btn
+														a.tab-btn(href="#")
+													.tabs__content-content
+						.default-slider
+							.default-slider__title С этим товаром покупают
+							.default-slider__slider
+								.default-slider__slider-list
+									.swiper-wrapper
+										- for (let i = 0; i < 3; i++)
+											each item, i in ["Кроссовки для занятия йогой Nike", "Сапоги STAR", "Кросовки ELLA BUCKLE TRIM BALLERINA"]
+												.swiper-slide
+													.cat-item
+														a.cat-item__img(href="#")
+															img.swiper-lazy(loading="lazy" data-src="img/photos/cat-p-item-"+i+".jpg", alt=item)
+															.swiper-lazy-preloader
+														.cat-item__links
+															if (i == 0)
+																.cat-item__links-left
+																	a.compare-link.added(href="#" title="Добавить к сравнению")
+																.cat-item__links-right
+																	a.favorite-link.added(href="#" title="В избранное")
+															else
+																.cat-item__links-left
+																	a.compare-link(href="#" title="Добавить к сравнению")
+																.cat-item__links-right
+																	a.favorite-link(href="#" title="В избранное")
+														.cat-item__desc
+															.cat-item__title
+																a(href="#")=item
+															.cat-item__price
+																.cat-price 3 990 руб
+														.cat-item__btns
+															.cat-item__btns-primary
+																if (i == 0)
+																	a.default-btn.default-btn--bordered(href="#") В корзине
+																else
+																	a.default-btn(href="#") Купить
+								.default-slider__slider-nav
+									.swiper-button-prev
+									.swiper-button-next
+								.default-slider__slider-dots
+									.swiper-pagination
+		include inc/footer.pug
+		include inc/scripts.pug

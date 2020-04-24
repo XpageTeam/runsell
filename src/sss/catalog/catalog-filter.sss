@@ -1,0 +1,187 @@
+.ui-widget-content
+	background: #E0E0E0
+	border-radius: 5px
+	height: 5px
+	position: relative
+
+.ui-slider
+
+	&-range
+		position: absolute
+		height: 100%
+
+	&-handle
+		border: 1px solid #dee0e3
+		background: #fff
+		width: 15px
+		height: 15px
+		top: calc(50% - 8px)
+		transform: translateX(-8px)
+		cursor: pointer
+		position: absolute
+		z-index: 2
+		border-radius: 50%
+		box-shadow: 5px 5px 15px rgba(0,0,0,.1)
+
+	&-range, &-handle
+		background-color: var(--main-color)
+
+.price-filter
+
+	&__currents
+		display: flex
+		justify-content: space-between
+		margin: 16px 0 0
+		font-size: 12px
+
+	&__inputs
+		position: relative
+		z-index: 1
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin: 33px 0 0
+		display: none
+
+		&:before
+			content: "-"
+			display: inline-block
+			order: 1
+
+		input[type="tel"]
+			size: calc((100% - 25px) / 2) 39px
+			border: none
+			padding: 5px 14px
+			border-radius: 5px
+			background: #F6F8FB
+
+			&:last-child
+				order: 2
+
+.filter
+	max-width: 268px
+	width: 100%
+
+	&__close
+		display: none
+
+	&__btns
+		margin: 60px 0 0
+
+	&__item
+
+		&--closed &-content
+			display: none
+
+		&--closed &-title:after
+			transform: rotateZ(-45deg)
+
+		&-title
+			margin: 0 0 25px
+			font-weight: 600
+			font-size: em(14)
+			cursor: pointer
+			position: relative
+			user-select: none
+
+			&:after
+				content: ""
+				position: absolute calc(50% - 2px) 0 * * 
+				size: 4px
+				border-left: 1px solid #000
+				border-bottom: 1px solid #000
+				transform: rotateZ(135deg)
+
+		&:not(:first-child)
+			border-top: 1px solid var(--border-color)
+			margin: 30px 0 0
+			padding: 30px 0 0
+
+.filter-search
+	margin: 0 0 30px
+	position: relative
+
+	&__input
+		border: 1px solid var(--border-color)
+		size: 100% 50px
+		border-radius: 5px
+		padding: 0 40px 0 18px
+		font-size: 12px
+
+	&__btn
+		size: 40px 100%
+		position: absolute
+		right: 0
+		top: 0
+		border: none
+		background: url("../img/ico-filter-search-btn.svg") center no-repeat
+
+.filter-list
+	max-height: 200px
+	overflow-y: auto
+
+	&::-webkit-scrollbar
+		width: 12px
+
+		&-track, &-thumb
+			border-left: 10px solid #fff
+
+		&-track
+			background-color: #E0E0E0
+		
+		&-thumb
+			background-color: var(--main-color)
+
+	&__item
+
+		&:not(:first-child)
+			margin: 10px 0 0
+
+.colors-filter
+	display: flex
+	flex-wrap: wrap
+	max-width: 170px
+	margin-bottom: -10px
+
+	&__item
+		margin-bottom: 10px
+
+		&:not(:last-child)
+			margin-right: 8px
+
+.color-checkbox
+	position: relative
+	size: 25px
+	border-radius: 5px
+
+	&__input
+		position: absolute 0 0 * *
+		size: 100%
+		opacity: 0
+		cursor: pointer
+
+		&:checked
+			
+			+ label:after
+				opacity: 1
+
+	&__label
+		size: 100%
+		display: block
+		border-radius: inherit
+
+		&:after
+			content: ""
+			position: absolute calc(50% - 3px) * * calc(50% - 4px)
+			size: 8px 4px
+			border-left: 1px solid #fff
+			border-bottom: 1px solid #fff
+			transform: rotateZ(-45deg)
+			z-index: 2
+			pointer-events: none
+			opacity: 0
+
+.f-btns
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	gap: 20px 30px

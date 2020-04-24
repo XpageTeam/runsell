@@ -1,0 +1,117 @@
+.card-desc
+	font-size: em(14)
+
+	&__title
+		margin: 0 0 30px
+
+		h1
+			font-size: 24px
+			line-height: 1.35
+			font-weight: 600
+
+	&__raiting
+		margin: 0 0 30px
+
+	&__tabs
+		margin: 40px 0 0
+
+.card-spec
+	display: flex
+	justify-content: space-between
+
+	&__spec
+		margin-right: 20px
+
+		&-title
+			letter-spacing: 0.02em
+			font-weight: 600
+			margin: 0 0 8px
+
+		&-text
+			margin: 20px 0 0
+
+	&__price
+		flex: none
+
+.sc-text
+
+	&__row
+		display: flex
+		align-items: center
+
+		&:not(:first-child)
+			margin: 4px 0 0
+
+		&-label
+			order: -1
+			color: rgba(0, 0, 0, .5)
+
+		&:before
+			content: ""
+			margin: 0 15px
+			size: 15px 1px
+			background: #C4C4C4 
+
+.csp
+	border-radius: 5px
+	border: 1px solid var(--border-color)
+	padding: 22px 20px 25px
+	font-size: 16px
+	display: grid
+	grid-template-columns: repeat(2, auto)
+	grid-template-areas: "prices prices" "counter btn"
+	gap: 20px 14px
+
+	&__prices
+		grid-area: prices
+		display: flex
+		align-items: flex-end
+
+		.cat-price
+			font-size: em(20)
+
+	&__counter
+		grid-area: counter
+
+	&__btn
+		grid-area: btn
+
+.card-sizes
+	display: flex
+	margin: 22px 0 0
+
+	&__sizes, &__color
+
+		&:not(:last-child)
+			margin-right: 25px
+
+.sizes
+	display: flex
+	flex-wrap: wrap
+	margin-bottom: -10px
+	max-width: 200px
+
+	&__item
+		margin-bottom: 10px
+		position: relative
+
+		&:not(:last-child)
+			margin-right: 10px
+
+		&-input
+			opacity: 0
+			position: absolute 0
+			cursor: pointer
+
+			&:checked
+				
+				+ label
+					color: #fff var(--main-color)
+
+		&-label
+			border-radius: 5px
+			size: 30px
+			border: 1px solid var(--border-color)
+			display: block
+			text-align: center
+			line-height: 32px

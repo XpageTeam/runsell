@@ -1,0 +1,60 @@
+.catalog-sort
+	display: flex
+	align-items: center
+	justify-content: space-between
+	margin: 0 0 30px
+
+	&__sort
+		margin-right: 10px
+
+.cat-sort
+	display: flex
+	align-items: center
+	font-size: em(14)
+
+	&__label
+		color: rgba(0, 0, 0, .5)
+		margin-right: 32px
+
+	&__links
+		display: flex
+
+		&-link
+
+			&:not(:last-child)
+				margin-right: 38px
+
+			&.active
+				border-bottom: 2px solid var(--main-color)
+
+		select
+			display: none
+
+.cat-types
+	display: flex
+
+	&__plates, &__list
+		flex: none
+		cursor: pointer
+
+		&:not(:last-child)
+			margin-right: 14px
+
+	&__plates
+		size: 20px
+		
+		&:not(.active)
+			background: url("../img/ico-plates.svg") no-repeat
+
+		&.active
+			background: url("../img/ico-plates-active.svg") no-repeat
+
+	&__list
+		size: 25px 20px
+		
+		&:not(.active)
+			background: url("../img/ico-list.svg") no-repeat
+
+		&.active
+			background: url("../img/ico-list-active.svg") no-repeat
+

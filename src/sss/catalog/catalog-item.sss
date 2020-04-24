@@ -1,16 +1,30 @@
+body.inner
+
+	.cat-item
+
+		&__img
+			display: flex
+			justify-content: center
+			align-items: center
+			height: 350px
+			border: 1px solid var(--border-color)
+
+			img
+				width: auto
+	
 .cat-item
-	margin: -9px
+	// margin: -9px
 	flex: 1 1 auto
-	border: 9px solid transparent
-	outline: 1px solid transparent
-	transition: border-color .3s ease, outline-color .3s ease
+	// border: 9px solid transparent
+	// outline: 1px solid transparent
+	// transition: border-color .3s ease, outline-color .3s ease
 	position: relative
 	display: flex
 	flex-direction: column
 
 	&:hover, &:focus
-		border-color: #fff	
-		outline-color: var(--border-color)
+		// border-color: #fff	
+		// outline-color: var(--border-color)
 
 		.cat-item
 
@@ -24,6 +38,7 @@
 		
 		img
 			display: block
+			width: 100%
 
 	&__desc
 		flex: 1 1 auto
@@ -43,7 +58,7 @@
 			border-bottom: 1px solid var(--main-color)
 			font: inherit
 
-	&__links, &__btns
+	&__links
 		position: absolute
 		left: -10px
 		right: -10px
@@ -62,9 +77,10 @@
 		top: calc(100% + 9px)
 		background: #fff
 		z-index: 10
-		padding: 11px 9px 7px
-		border: 1px solid $border-color
-		border-top: none
+		// padding: 11px 9px 7px
+		padding: 11px 0 0
+		// border: 1px solid var(--border-color)
+		// border-top: none
 		display: flex
 
 		&-second, &-primary
@@ -125,3 +141,56 @@
 	font-weight: bold
 	line-height: calc(24 / 16)
 	letter-spacing: .06em
+
+	&--old
+		margin-left: 6px
+		text-decoration: line-through
+		font-size: em(14) !important
+		color: #C4C4C4
+		font-weight: 400
+
+
+@media (max-width: 1000px)
+	.cat-item
+		outline-color: var(--border-color)
+		margin: 0
+
+		&__btns
+			position: static
+			border: none
+			padding-inline: 0
+
+		&__links, &__btns
+			opacity: 1
+			pointer-events: all
+
+@media (max-width: 660px)
+	.cat-item
+		outline: none
+		border: none
+		
+		&__links
+			top: 0
+			right: 0
+			left: 0
+			padding: 10px
+
+		&__img
+			margin: 0
+
+		&__title
+			font-size: em(10)
+			margin: 0 0 7px
+
+		&__desc, &__btns
+			border-inline: 1px solid var(--border-color)
+			padding-inline: 10px
+
+		&__desc
+			padding-top: 15px
+
+		&__btns
+			border-bottom: 1px solid var(--border-color)
+
+	.cat-price
+		font-size: em(14)

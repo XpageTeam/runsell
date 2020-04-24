@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Каталог - списком
+		include inc/head.pug
+		include inc/css.pug
+	body.inner.loading
+		include inc/header.pug
+		main#content
+			.inner-content
+				.inner-content__title
+					.wrapper
+						include /mixins/title-block.pug
+						+titleBlock(["Главная", "Женское", "Обувь женская"])
+				.inner-content__content
+					.wrapper
+						.catalog-nav
+							.cat-nav
+								.cat-nav__slider
+									.swiper-wrapper
+										- for (let i = 0; i < 2; i++)
+											each title, i in ["Женская одежда", "Женская одежда", "Мужская одежда", "Детская для мальчиков", ]
+												.swiper-slide
+													a.cat-nav__slide(href="#")
+														figure.cat-nav__slide-img
+															img.swiper-lazy(data-src="img/photos/cat-nav-img-"+i+".jpg", alt=title)
+															span.swiper-lazy-preloader
+														figcaption.cat-nav__slide-text=title
+								.cat-nav__nav
+									.swiper-button-prev
+									.swiper-button-next
+								.cat-nav__dots
+									.swiper-pagination
+						.catalog
+							aside.catalog__filter
+								.catalog__filter-close
+								form(action="#")
+									.filter
+										.filter__item
+											.filter__item-title Цена:
+											.filter__item-content
+												.price-filter
+													.price-filter__inputs
+														input.price-min(type="hidden" value="5")
+														input.price-max(type="hidden" value="10000")
+
+														input.price-step(type="hidden" value="5")
+
+														<!-- значения брать из этих инпутов -->
+														input.price-min-cur(type="tel" value="5")
+														input.price-max-cur(type="tel" value="7000")
+													.price-filter__slider
+													.price-filter__currents
+														.price-filter__currents-form
+														.price-filter__currents-to
+										.filter__item
+											.filter__item-title Бренд:
+											.filter__item-content
+												.filter-search
+													input(type="search" required="" placeholder="Введите название").filter-search__input
+													input(type="submit"  value="").filter-search__btn
+												.filter-list
+													- for (let j = 0; j < 2; j++)
+														each color, l in ['Nike', 'Adidas ', 'Star', 'ELLA BUCKLE', 'Reebok', 'Armani', 'Lacoste']
+															.filter-list__item
+																.default-checkbox
+																	input.default-checkbox__input(type="checkbox")
+																	label.default-checkbox__label
+																		span.default-checkbox__label-text=color
+																			i (80)
+										.filter__item.filter__item--closed
+											.filter__item-title Материал:
+											.filter__item-content
+												.filter-list
+													- for (let j = 0; j < 2; j++)
+														each color, l in ['Синтетика', 'Кожа', 'КРГ', 'Велюр', 'Замша', 'Наппа']
+															.filter-list__item
+																.default-checkbox
+																	input.default-checkbox__input(type="checkbox")
+																	label.default-checkbox__label
+																		span.default-checkbox__label-text=color
+																			i (86)
+										.filter__item
+											.filter__item-title Цвет:
+											.filter__item-content
+												.colors-filter
+													each color in ["000", "D6E3FF", "A6A671", "7C6254", "CCAC7B", "982222", "28502C", "510000", "47604D", ]
+														.colors-filter__item
+															.color-checkbox
+																input.color-checkbox__input(type="checkbox")
+																label.color-checkbox__label(style="background-color: #"+color)
+										.filter__btns
+											.f-btns
+												.f-btns__btn
+													input.default-btn(type="submit" value="Применить")
+												.f-btns__btn
+													input.default-btn.default-btn--bordered(type="submit" value="Сбросить")
+							.catalog__container
+								.catalog-sort
+									.catalog-sort__sort
+										.cat-sort
+											.cat-sort__label Сортировать по: 
+											.cat-sort__links
+												a.cat-sort__links-link.active(href="#") популярности
+												a.cat-sort__links-link(href="#") рейтингу
+												a.cat-sort__links-link(href="#") цене
+												a.cat-sort__links-link(href="#") скидке
+												a.cat-sort__links-link(href="#") обновлению
+
+												<!-- селект нужне для адаптива -->
+												<!-- при изменения value у селекта я буду делать переход по соответствующей ссылке -->
+												select
+													option(value="0" selected="") популярности
+													option(value="0") рейтингу
+													option(value="0") цене
+													option(value="0") скидке
+													option(value="0") обновлению
+									.catalog-sort__type
+										.cat-types
+											a.cat-types__plates(href="#")
+											a.cat-types__list.active(href="#")
+								.catalog-list
+									each item, j in [{title: "Кроссовки для занятия йогой Nike", text: "Беговые кроссовки оптимально поддерживают стопу без ущерба комфорту. "}, {title: "Сапоги STAR", text: "Побалуйте себя новой парой обуви в непогоду. Будьте стильными с демисезонными сапогами и чувствуйте себя уверенно."}, {title: "Кросовки ASICS TRIM BALLERINA", text: "В ASICS мы создали широкую линейку кроссовок, разработанных для того, чтобы любое ваше движения было комфортным. Кроссовки с использованием последних инновационных тех"}]
+										.catalog-list__item
+											.cl-item
+												.cl-item__imgs
+													.cli-slider
+														.swiper-wrapper
+															- for (let i = 0; i < 3; i++)
+																a.swiper-slide(href="#")
+																	img.swiper-lazy(data-src="img/photos/cat-list-item-img-"+i+".jpg" loading="lazy")
+																	.swiper-lazy-preloader
+														.cli-slider__dots
+															.swiper-pagination
+												.cl-item__desc
+													a.cl-item__desc-title(href="#")=item.title
+													.cl-item__desc-text
+														p=item.text
+												.cl-item__buy
+													.cl-item__buy-price
+														.cat-price 5 499 руб
+													.cl-item__buy-counter
+														.counter
+															a.counter__link.counter__link--minus(href="#")
+															input.counter__input(type="tel" value="1")
+															a.counter__link.counter__link--plus(href="#")
+													.cl-item__buy-btn
+														if (j == 1)
+															a.default-btn.default-btn--bordered(href="#") В корзине
+														else
+															a.default-btn(href="#") Купить
+								include inc/paginator
+		include inc/footer.pug
+		include inc/scripts.pug

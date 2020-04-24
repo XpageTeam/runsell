@@ -6,27 +6,42 @@ html(lang="ru")
 		include inc/head.pug
 		include inc/css.pug
 	body.main.loading
-		.mobile-menu
 		include inc/header.pug
 		main#content
 			.top-banners__cont
 				.wrapper
 					.top-banners
 						.top-banners__slider
+							<!-- Обрати внимание что на большом слайде стоит дополнительный класс, он нужен для адаптива -->
 							.swiper-wrapper
 								- for (let j = 0; j < 2; j++)
 									each slide, i in [{label: "Скидки", title: "На все 50%"}, {label: "Новые поступления", title: "Мужские кросовки"}, {label: "Актуальные категории", title: "Рюкзаки и сумки"}, ]
-										.swiper-slide
-											a.top-slide(href="#")
-												img.top-slide__img(src="img/photos/top-slide-img-"+(i+1)+".jpg", alt=slide.title)
-												.top-slide__desc
-													if (slide.label == "Скидки")
-														.top-slide__label.top-slide__label--sale=slide.label
-													else if (slide.label == "Новые поступления")
-														.top-slide__label.top-slide__label--new=slide.label
-													else
-														.top-slide__label.top-slide__label--actual=slide.label
-													.top-slide__title=slide.title
+										if (i == 2)
+											.swiper-slide.swiper-slide--big
+												a.top-slide(href="#")
+													img.swiper-lazy.top-slide__img(data-src="img/photos/top-slide-img-"+(i+1)+".jpg", loading="lazy" alt=slide.title)
+													.swiper-lazy-preloader
+													.top-slide__desc
+														if (slide.label == "Скидки")
+															.top-slide__label.top-slide__label--sale=slide.label
+														else if (slide.label == "Новые поступления")
+															.top-slide__label.top-slide__label--new=slide.label
+														else
+															.top-slide__label.top-slide__label--actual=slide.label
+														.top-slide__title=slide.title
+										else
+											.swiper-slide
+												a.top-slide(href="#")
+													img.swiper-lazy.top-slide__img(data-src="img/photos/top-slide-img-"+(i+1)+".jpg", loading="lazy" alt=slide.title)
+													.swiper-lazy-preloader
+													.top-slide__desc
+														if (slide.label == "Скидки")
+															.top-slide__label.top-slide__label--sale=slide.label
+														else if (slide.label == "Новые поступления")
+															.top-slide__label.top-slide__label--new=slide.label
+														else
+															.top-slide__label.top-slide__label--actual=slide.label
+														.top-slide__title=slide.title
 						.top-banners__nav
 							.swiper-button-prev
 							.swiper-button-next
@@ -45,7 +60,7 @@ html(lang="ru")
 									.main-cat__one
 										.cat-item
 											a.cat-item__img(href="#")
-												img(src="img/photos/cat-item-"+i+".jpg", alt=item.title)
+												img(loading="lazy" src="img/photos/cat-item-"+i+".jpg", alt=item.title)
 											.cat-item__links
 												if (i == 0)
 													.cat-item__links-left

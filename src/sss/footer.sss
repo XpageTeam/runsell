@@ -109,3 +109,25 @@
 .f-address
 	line-height: lh(22, 14)
 	letter-spacing: .04em
+
+@media (max-width: 1000px)
+	.footer
+		margin: 0
+
+		&__top
+			display: none
+
+		&__bot
+			flex-direction: column-reverse
+			padding: 20px 0
+
+		&__feedback
+			margin: 0 0 10px
+
+	.feedback
+
+		&__title
+			display: none
+
+	.copy
+		text-align: center

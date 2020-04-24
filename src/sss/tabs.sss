@@ -1,0 +1,60 @@
+.tabs
+	position: relative
+	// overflow: hidden
+
+	&__content
+		// transition: opacity .3s ease
+		pointer-events: all
+		margin: 27px 0 0
+
+		&-btn
+			display: none
+
+
+		&:not(.active)
+			position: absolute
+			top: 100%
+			left: 0
+			opacity: 0
+			transform: translate3d(0,10px,0)
+			pointer-events: none
+			overflow: hidden
+			display: none
+
+
+.tabs
+
+	&__top
+		display: flex
+		border-block: 1px solid var(--border-color)
+		padding: 11px 0
+
+	&__tab
+		padding: 6px 18px
+		cursor: pointer
+		user-select: none
+
+		&:first-child
+			padding-left: 0
+
+		&:last-child
+			padding-right: 0
+		
+		&:not(:last-child)
+			border-right: 1px solid var(--border-color)
+
+@media (max-width: 1200px)
+	
+	.tabs
+		&__tab
+			padding: 9px 20px
+			margin-bottom: 13px
+
+		&__top
+			flex-wrap: wrap
+
+
+@media (max-width: 667px)
+	
+	.tabs__tab
+		padding: 9px 15px

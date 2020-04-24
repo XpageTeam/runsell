@@ -1,1 +1,23 @@
 @import "catalog-item.sss"
+
+@import "catalog-nav-slider.sss"
+@import "catalog-filter.sss"
+@import "catalog-sort.sss"
+@import "catalog-plates.sss"
+@import "catalog-list.sss"
+
+.catalog
+	border-top: 1px solid var(--border-color)
+	padding: 25px 0 0
+	display: grid
+	align-items: start
+	grid-template-columns: 300px 1fr
+	grid-template-areas: "filter content"
+	gap: 33px
+
+	&__filter
+		grid-area: filter
+		border-right: 1px solid var(--border-color)
+
+	&__container
+		grid-area: content
