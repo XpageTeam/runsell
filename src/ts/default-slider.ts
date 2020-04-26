@@ -9,8 +9,8 @@ domReady(() => {
 
 	for (const slider of clSliders)
 		new Swiper(slider.querySelector(".default-slider__slider-list") as HTMLElement, {
-			slidesPerView: 4,
-			spaceBetween: 32,
+			slidesPerView: 1,
+			spaceBetween: 20,
 			autoplay: {
 				delay: 3000,
 				disableOnInteraction: false
@@ -24,9 +24,21 @@ domReady(() => {
 				nextEl: slider?.closest(".default-slider")?.querySelector(".swiper-buttin-next") as HTMLElement
 			},
 			pagination: {
-				el: slider.querySelector(".swiper-pagination") as HTMLElement,
+				el: slider?.closest(".default-slider")?.querySelector(".swiper-pagination") as HTMLElement,
 				clickable: true,
 				type: "bullets"
+			},
+			breakpoints: {
+				1200: {
+					spaceBetween: 32,
+					slidesPerView: 4,
+				},
+				1000: {
+					slidesPerView: 4
+				},
+				660: {
+					slidesPerView: 3,
+				}
 			}
 		});
 });

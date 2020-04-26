@@ -3,9 +3,19 @@ import "./cat-nav-slider";
 import "./cat-list-slider";
 import "./default-slider";
 import "./card-slider";
+import "./mobile-filter-slider";
+import "./tabs";
 import domReady from './xpage/ready';
 import MobileMenu from './xpage/mobileMenu';
 import EventListener from './xpage/EventListener';
+
+declare global {
+	interface Window {
+		$: any;
+		// is: any;
+	}
+}
+
 
 domReady(() => {
 	new MobileMenu({
@@ -34,4 +44,10 @@ domReady(() => {
 
 		targetSubmenu.classList.remove("js__visible");
 	});
+
+	new EventListener(".head-search").add("click", function(el: HTMLElement, e: Event){
+		e.preventDefault();
+
+		window.$(".head__search-field").slideToggle(300);
+	})
 });

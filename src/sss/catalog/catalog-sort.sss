@@ -61,3 +61,61 @@
 		&.active
 			background: url("../img/ico-list-active.svg") no-repeat
 
+
+
+
+@media (max-width: 1300px) and (min-width: 1000px)
+	.cat-sort
+
+		&__label
+			margin-right: 20px
+
+		&__links
+
+			&-link
+
+				&:not(:last-child)
+					margin-right: 15px
+
+@media (max-width: 1000px)
+	.cat-sort
+
+		&__label
+			margin-right: 10px
+
+		&__links
+
+			&-link
+				display: none
+
+			select
+				display: block
+				padding: 10px 30px 10px 15px
+				background: url("../img/ico-select-arrow.svg") right 10px center no-repeat
+				border: 1px solid var(--border-color)
+
+@media (max-width: 660px)
+	.cat-sort
+		font-size: 12px
+		display: block
+
+		&__label
+			margin: 0 0 5px
+	
+	.catalog-sort
+
+		&__filter
+			display: block
+			order: 1
+			margin-left: 20px
+
+		&__sort
+			margin-right: auto
+
+	.mobile-filter-btn
+		font-size: 0
+		border: none
+		size: 20px
+		display: block
+		background: url("../img/ico-filter.svg") center no-repeat
+		background-size: contain

@@ -76,7 +76,8 @@ export default class MobileMenu{
 
 		this.menu = App.getElement(settings.menu)
 
-		this.bindEvents()
+		if (this.burger && this.menu)
+			this.bindEvents()
 	}
 
 	public openMenu(): MobileMenu{

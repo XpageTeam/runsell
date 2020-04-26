@@ -9,6 +9,8 @@
 
 		&-slide
 			height: auto
+			display: flex
+			flex-direction: column
 
 		&-button
 
@@ -56,6 +58,7 @@
 	&__slide
 		display: flex
 		align-items: center
+		flex: 1 1 auto
 		border: 1px solid var(--border-color)
 		transition: border-color .3s ease
 		padding: 18px 32px
@@ -72,3 +75,23 @@
 		&-text
 			font-size: em(14)
 			line-height: calc(22 / 14)
+
+@media (max-width: 1200px) and (min-width: 660px)
+	.cat-nav
+		
+		&__slide
+			padding: 15px 20px
+			font-size: 14px
+
+			&-img
+				margin-right: 20px
+
+@media (max-width: 660px)
+	.cat-nav
+		
+		&__slide
+			padding: 15px
+			font-size: 13px
+
+			&-img
+				margin-right: 10px

@@ -10,8 +10,8 @@ domReady(() => {
 	for (const slider of catNavSliders)
 		new Swiper(slider.querySelector(".cat-nav__slider") as HTMLElement, {
 			loop: true,
-			spaceBetween: 32,
-			slidesPerView: 4,
+			spaceBetween: 20,
+			slidesPerView: 1,
 			freeMode: true,
 			autoplay: {
 				delay: 4000,
@@ -24,6 +24,21 @@ domReady(() => {
 			lazy: {
 				loadOnTransitionStart: true,
 				loadPrevNext: true
+			},
+			breakpoints: {
+				1200: {
+					spaceBetween: 32,
+					slidesPerView: 4
+				},
+				1000: {
+					slidesPerView: 4
+				},
+				660: {
+					slidesPerView: 3
+				},
+				400: {
+					slidesPerView: 2
+				}
 			}
 		});
 });

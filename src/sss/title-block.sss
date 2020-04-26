@@ -28,3 +28,36 @@
 			font-weight: bold
 			font-size: em(24)
 			line-height: 1.35
+
+@media (max-width: 660px)
+	.title-block
+		font-size: 12px
+
+		&__crumbs
+			margin: 0 0 5px
+
+	.bread-crumbs
+
+		&__this, &__link:not(:first-child)
+			display: none
+
+		&__link
+
+			&:first-child
+
+				a
+					color: var(--main-color)
+					position: relative
+					padding-left: 10px
+					display: inlie-block
+
+					&:before
+						content: ""
+						position: absolute calc(50% - 3px) * * 0
+						size: 4px
+						border-top: 1px solid currentColor
+						border-left: 1px solid currentColor
+						transform: rotateZ(-45deg)
+
+				&::after
+					display: none

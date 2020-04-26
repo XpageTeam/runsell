@@ -1,5 +1,7 @@
 import {Swiper, Pagination, Lazy, EffectFade} from "swiper/js/swiper.esm";
 import domReady from './xpage/ready';
+import EventListener from './xpage/EventListener';
+import App from './xpage/core';
 
 Swiper.use([Pagination, Lazy, EffectFade]);
 
@@ -18,11 +20,22 @@ domReady(() => {
 		}
 	});
 	
-	new Swiper(".csb-slider", {
+	const bigSlider = new Swiper(".csb-slider", {
 		effect: "fade",
 		lazy: {
 			loadPrevNext: true,
 			loadOnTransitionStart: true,
+		},
+		pagination: {
+			el: ".csb-slider .swiper-pagination",
+			type: "bullets",
+			clickable: true,
 		}
+	});
+
+	App.each(".cs-thumbs .swiper-slide", function(el: HTMLElement, i: number){
+		new EventListener(el).add("click", function(){
+			bigSlider.slideTo(i);
+		});
 	});
 });

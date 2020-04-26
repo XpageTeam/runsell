@@ -34,6 +34,18 @@
 		cursor: pointer
 		user-select: none
 
+		&.active span:after
+			opacity: 1
+
+		span
+			position: relative
+
+			&:after
+				content: ""
+				border-bottom: 1px solid var(--main-color)
+				position: absolute calc(100% + 21px) 0 *
+				opacity: 0
+
 		&:first-child
 			padding-left: 0
 
@@ -46,15 +58,43 @@
 @media (max-width: 1200px)
 	
 	.tabs
+
 		&__tab
 			padding: 9px 20px
-			margin-bottom: 13px
 
 		&__top
 			flex-wrap: wrap
 
 
-@media (max-width: 667px)
-	
-	.tabs__tab
-		padding: 9px 15px
+@media (max-width: 660px)
+	.tabs
+		
+		&__tab
+			padding: 9px 15px
+
+		&__top
+			display: none
+
+		&__content
+			display: block !important
+			margin: 0 !important
+			position: static !important
+			pointer-events: all !important
+			opacity: 1 !important
+			transform: none !important
+
+			&:not(.active) &-content
+				display: none
+
+			&-content
+				padding: 20px 0
+				font-size: 12px
+
+			&-btn
+				display: block
+
+	.tab-btn
+		display: block
+		cursor: pointer
+		padding: 10px 0
+		border-block: 1px solid var(--border-color)

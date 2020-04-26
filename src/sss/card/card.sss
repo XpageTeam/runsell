@@ -1,2 +1,94 @@
 @import "card-slider.sss"
 @import "card-desc.sss"
+
+.card
+
+	&__top
+		display: grid
+		gap: 32px
+		grid-template-areas: "slider desc"
+		grid-template-columns: repeat(2, 1fr)
+		align-items: start
+
+		&-slider
+			grid-area: slider
+
+			img
+				max-height: 100%
+
+		&-desc
+			grid-area: desc
+
+@media (max-width: 1320px) and (min-width: 1000px)
+	.card__top
+		grid-template-columns: 400px 1fr
+
+@media (max-width: 1000px) and (min-width: 660px)
+	.card__top
+		grid-template-columns: 100%
+		grid-template-areas: "desc"
+		gap: 20px
+		position: relative
+
+		&-slider
+			position: absolute 0 * * 0
+			width: 300px
+
+	.card-slider
+		height: 300px
+
+	.card-desc
+
+		&__title h1
+			font-size: 18px
+
+		&__title, &__raiting, &__spec
+			margin-left: 320px
+
+@media (max-width: 1000px)
+	.csb-slider
+
+		&__dots
+			display: block
+
+			.swiper
+
+				&-pagination
+					position: static
+					margin: 10px 0 15px
+					display: flex
+					justify-content: center
+
+					&-bullet
+
+						&:not(:last-child)
+							margin-right: 10px
+
+						&-active
+							background-color: var(--main-color)
+		
+	.card-slider
+		padding: 20px
+
+		&__thumbs
+			display: none
+
+	.card-spec
+		display: block
+
+		&__spec
+			margin: 0 0 20px
+
+@media (max-width: 660px)
+	.card__top
+		grid-template-columns: 100%
+		grid-template-areas: "slider" "desc"
+		gap: 20px
+
+	.card-desc
+
+		&__title h1
+			font-size: 17px
+	
+	.card-slider
+		height: 220px

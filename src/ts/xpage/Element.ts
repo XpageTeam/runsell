@@ -3,6 +3,7 @@ import App from "./core"
 export default class Element {
 	// private _selector: string
 	protected _els: HTMLElement[]
+	protected _selector: string = ""
 	public _length: number = 0
 
 	set els(elements: HTMLElement[]){
@@ -34,9 +35,10 @@ export default class Element {
 
 		if (!selector)
 			this.els = []
-		else if (typeof selector == "string")
+		else if (typeof selector == "string"){
 			this.els = App.elementsGetter(selector)
-		else if (selector instanceof HTMLElement)
+			this._selector = selector;
+		}else if (selector instanceof HTMLElement)
 			this.els = [selector]
 		else if (selector instanceof NodeList)
 			this.els = App.transformNodeListToArray(selector)

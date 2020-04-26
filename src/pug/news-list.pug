@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Новости
+		include inc/head.pug
+		include inc/css.pug
+	body.inner.loading
+		include inc/header.pug
+		main#content
+			.inner-content
+				.inner-content__title
+					.wrapper
+						include /mixins/title-block.pug
+						+titleBlock(["Главная", "Новости"])
+				.inner-content__content
+					.wrapper
+						.news-list
+							- for (let i = 0; i < 3; i++)
+								.news-list__item
+									.news
+										a.news__img(href="#")
+											img(src="img/photos/news-list-img.png", alt="Поступление новой коллекции")
+										.news__desc
+											a.news__desc-title(href="#") Поступление новой коллекции
+											.news__desc-date 08.05.2018
+											article.news__desc-text
+												p Только с 19 апреля по 02 мая 2018 г. в розничных магазинах акция 3=2 на детскую коллекцию! Подробнее...
+						include inc/paginator
+		include inc/footer.pug
+		include inc/scripts.pug

@@ -88,3 +88,73 @@
 		justify-content: center
 		margin: 20px 0 0
 
+@media (max-width: 1300px) and (min-width: 1000px)
+	.cl-item
+		padding: 20px 30px
+
+@media (max-width: 1200px)
+	.cl-item
+
+		&__imgs
+			width: 130px
+		
+		&__buy
+			gap: 10px
+			grid-template-areas: "price" "counter" "btn"
+			grid-template-columns: 100%
+			width: auto
+
+			.default-btn
+				width: 125px
+				justify-content: center
+
+@media (max-width: 1000px)
+	.cl-item
+		padding: 20px
+		flex-wrap: wrap
+		display: grid
+		grid-template-columns: 110px 1fr
+		grid-template-areas: "imgs desc" "buy buy"
+		gap: 20px
+
+		&__imgs, &__buy, &__desc
+			width: auto
+			margin: 0 !important
+
+		&__imgs
+			grid-area: imgs
+
+		&__buy
+			grid-area: buy
+
+		&__desc
+			grid-area: desc
+
+@media (max-width: 1000px) and (min-width: 660px)
+	.cl-item
+
+		&__buy
+			width: 100%
+			display: flex
+			justify-content: space-between
+
+			&-price
+				margin-right: auto
+
+			&-counter
+				margin-right: 20px
+
+@media (max-width: 660px)
+	.cl-item
+		grid-template-areas: "imgs buy" "desc desc"
+		grid-template-columns: 120px 1fr
+
+@media (max-width: 370px)
+	.cl-item
+		padding: 0
+		border: none
+
+	.catalog-list__item
+
+		&:not(:first-child)
+			margin: 30px 0 0
