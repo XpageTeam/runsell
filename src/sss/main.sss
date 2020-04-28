@@ -35,15 +35,28 @@
 @import "card/card.sss"
 
 @import "news-list.sss"
+@import "contacts.sss"
 
 
 .inner-content
+	display: flex
+	flex-direction: column
 
 	&__title
 		padding: 35px 0 0
+		flex: none
 
 	&__content
 		padding: 30px 0 50px
+		flex: 1 1 auto
+		display: flex
+		flex-direction: column
+
+		.wrapper
+			width: calc(100% - 40px)
+			flex: 1 1 auto
+			display: flex
+			flex-direction: column
 
 @media (max-width: 1000px)
 	.inner-content

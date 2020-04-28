@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Контакты
+		include inc/head.pug
+		include inc/css.pug
+	body.inner.loading
+		include inc/header.pug
+		main#content
+			.inner-content
+				.inner-content__title
+					.wrapper
+						include /mixins/title-block.pug
+						+titleBlock(["Главная", "Контакты"])
+				.inner-content__content
+					.wrapper
+						.contacts
+							.contacts__contacts
+								.cc-list
+									.cc-list__item.cc-list__item--address
+										.ccl-item
+											.cc-list__item-label Адрес
+											address.cc-list__item-content
+												p г. Челябинск, ул. Лесопарковая, 8
+									.cc-list__item.cc-list__item--phone
+										.ccl-item
+											.cc-list__item-label Телефон
+											address.cc-list__item-content
+												p 
+													a(href="tel:8 800 123 34 56") 8 800 123 34 56
+									.cc-list__item.cc-list__item--email
+										.ccl-item
+											.cc-list__item-label E-mail
+											address.cc-list__item-content
+												p 
+													a(href="mailto:runsell@gmail.com") runsell@gmail.com
+									.cc-list__item.cc-list__item--time
+										.ccl-item
+											.cc-list__item-label График работы
+											time.cc-list__item-content
+												p 09:00 - 23:00
+							.contacts__map
+								.c-map
+									#map
+										<!-- img/ico-marker.svg -->
+										img(src="img/photos/contacts-map.jpg")
+		include inc/footer.pug
+		include inc/scripts.pug
+

@@ -1,0 +1,144 @@
+.contacts
+	display: flex
+	flex: 1 1 auto
+
+	&__map
+		flex: 1 1 auto
+
+	&__contacts
+		margin-right: 32px
+		width: 300px
+		flex: none
+
+.ccl-item
+	padding-left: 28px
+	background-repeat: no-repeat
+	background-position: left top 2px
+
+.cc-list
+	font-size: em(14)
+		
+	&__item
+
+		&:not(:first-child)
+			margin: 35px 0 0
+
+		&--phone .ccl-item
+			background-image: url("../img/ico-c-phone.svg")
+
+		&--email .ccl-item
+			background-image: url("../img/ico-c-mail.svg")
+
+		&--address .ccl-item
+			background-image: url("../img/ico-small-marker.svg")
+
+		&--time .ccl-item
+			background-image: url("../img/ico-time.svg")
+
+		&-label .ccl-item
+			color: rgba(0, 0, 0, .5)
+			margin: 0 0 5px
+
+		&-content
+
+			a
+
+				&[href*="tel"]
+					
+					&:not(:hover)
+						color: #000
+
+.contacts-list
+
+	&__list
+		border-bottom: 1px solid var(--border-color)
+
+		&-item
+			padding: 25px 0
+			border-top: 1px solid var(--border-color)
+
+	&__map
+		margin: 60px 0 0
+
+	.cc-list
+
+		&__item
+			margin: 0 !important
+
+			&:not(:first-child)
+				text-align: center
+
+	.ccl-item
+		display: inline-block
+		text-align: left
+
+@media (min-width: 660px)
+	.contacts-list
+
+		.cc-list
+			display: grid
+			grid-template-columns: repeat(4, 1fr)
+			gap: 0 32px
+
+@media (max-width: 1000px)
+	.contacts
+		flex-direction: column
+
+		&__contacts
+			width: 100%
+			margin: 0 0 20px
+			flex: none
+
+	.cc-list
+		display: grid
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr))
+		gap: 20px
+		font-size: 12px
+
+		&__item
+			margin: 0 !important
+
+	.ccl-item
+		padding-left: 20px
+
+@media (max-width: 660px)
+	.contacts
+
+		&__map
+			margin: 0 -20px -20px
+			flex: 1 1 atuo
+			display: flex
+			flex-direction: column
+
+			.c-map
+				height: 300px
+				flex: 1 1 auto
+
+			#map
+				height: 100%
+
+				img
+					display: block
+					width: 100%
+					height: 100%
+
+	.contacts-list
+
+		&__map
+			margin: 30px -20px -20px
+			flex: 1 1 atuo
+			display: flex
+			flex-direction: column
+
+			.c-map
+				height: 300px
+				flex: 1 1 auto
+
+			#map
+				height: 100%
+
+				img
+					display: block
+					width: 100%
+					height: 100%
+			
