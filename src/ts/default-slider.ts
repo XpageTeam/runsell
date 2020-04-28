@@ -28,6 +28,13 @@ domReady(() => {
 				clickable: true,
 				type: "bullets"
 			},
+			on: {
+				lazyImageReady(){
+					const slider = this as Swiper;
+	
+					slider.update();
+				}
+			},
 			breakpoints: {
 				1200: {
 					spaceBetween: 32,

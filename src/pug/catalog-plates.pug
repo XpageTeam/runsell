@@ -59,7 +59,9 @@ html(lang="ru")
 											.filter__item-content
 												.filter-search
 													input(type="search" required="" placeholder="Введите название").filter-search__input
-													input(type="submit"  value="").filter-search__btn
+													.filter-search__btn
+														include ../img/ico-search.svg
+														input.filter-search__btn-submit(type="submit"  value="")
 												.filter-list
 													- for (let j = 0; j < 2; j++)
 														each color, l in ['Nike', 'Adidas ', 'Star', 'ELLA BUCKLE', 'Reebok', 'Armani', 'Lacoste']

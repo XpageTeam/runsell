@@ -5,6 +5,9 @@
 	&__slider
 		overflow: hidden
 
+	&__dots
+		display: none
+
 	.swiper
 
 		&-slide
@@ -68,6 +71,7 @@
 
 		&-img
 			margin-right: 32px
+			max-width: 54px
 
 			img
 				display: block
@@ -88,6 +92,44 @@
 
 @media (max-width: 660px)
 	.cat-nav
+		margin: 0 -20px
+		overflow: hidden
+		position: relative
+
+		&:after
+			content: ""
+			position: absolute 0 * 0 0
+			z-index: 1
+			width: 20px
+			background-color: #fff
+
+		&__nav
+			display: none
+
+		&__slider
+			overflow: visible
+			margin: 0 30px
+
+		&__dots
+			display: block
+
+			.swiper-pagination
+				position: static
+				display: flex
+				justify-content: center
+
+				&-bullet
+					size: 8px
+					margin: 10px 0 25px
+
+					&:first-child:last-child
+						display: none
+
+					&:not(:last-child)
+						margin-right: 8px
+
+					&-active
+						background: var(--main-color)
 		
 		&__slide
 			padding: 15px

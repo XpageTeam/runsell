@@ -12,8 +12,20 @@
 
 .ccl-item
 	padding-left: 28px
-	background-repeat: no-repeat
-	background-position: left top 2px
+	// background-repeat: no-repeat
+	// background-position: left top 2px
+	position: relative
+
+	&__decor
+		position: absolute
+		top: 2px
+		left: 0
+
+		svg
+			display: block
+
+			path:not([fill*="white"])
+				fill: var(--main-color)
 
 .cc-list
 	font-size: em(14)
@@ -23,17 +35,17 @@
 		&:not(:first-child)
 			margin: 35px 0 0
 
-		&--phone .ccl-item
-			background-image: url("../img/ico-c-phone.svg")
+		// &--phone .ccl-item
+		// 	background-image: url("../img/ico-c-phone.svg")
 
-		&--email .ccl-item
-			background-image: url("../img/ico-c-mail.svg")
+		// &--email .ccl-item
+		// 	background-image: url("../img/ico-c-mail.svg")
 
-		&--address .ccl-item
-			background-image: url("../img/ico-small-marker.svg")
+		// &--address .ccl-item
+		// 	background-image: url("../img/ico-small-marker.svg")
 
-		&--time .ccl-item
-			background-image: url("../img/ico-time.svg")
+		// &--time .ccl-item
+		// 	background-image: url("../img/ico-time.svg")
 
 		&-label .ccl-item
 			color: rgba(0, 0, 0, .5)

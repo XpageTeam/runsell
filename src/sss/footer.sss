@@ -72,7 +72,7 @@
 		position: relative
 		padding-left: 35px
 
-		&:before
+		&-decor
 			content: ""
 			position: absolute
 			left: 0
@@ -82,17 +82,25 @@
 
 	&__phones
 
-		&:before
-			background: url("../img/ico-f-phone.svg") no-repeat
+		&-decor
+			// background: url("../img/ico-f-phone.svg") no-repeat
 			size: 13px 21px
 			top: calc(50% - 11px)
 
+			rect, path
+				stroke: var(--main-color)
+
 	&__address
 
-		&:before
-			background: url("../img/ico-small-marker.svg") no-repeat
+		&-decor
+			// background: url("../img/ico-small-marker.svg") no-repeat
 			size: 11px 15px
 			top: calc(50% - 18px)
+
+			path
+
+				&:not([fill*="#fff"])
+					fill: var(--main-color)		
 
 		p
 

@@ -114,7 +114,20 @@
 		right: 0
 		top: 0
 		border: none
-		background: url("../img/ico-filter-search-btn.svg") center no-repeat
+		// background: url("../img/ico-filter-search-btn.svg") center no-repeat
+		background: none
+		display: flex
+		justify-content: center
+		align-items: center
+
+		path
+			fill: var(--main-color)
+			stroke: var(--main-color)
+
+		&-submit
+			position: absolute 0 0 * *
+			opacity: 0
+			size: 100%
 
 .filter-list
 	max-height: 200px

@@ -12,7 +12,7 @@ domReady(() => {
 			loop: true,
 			spaceBetween: 20,
 			slidesPerView: 1,
-			freeMode: true,
+			// freeMode: true,
 			autoplay: {
 				delay: 4000,
 				disableOnInteraction: false
@@ -23,7 +23,20 @@ domReady(() => {
 			},
 			lazy: {
 				loadOnTransitionStart: true,
-				loadPrevNext: true
+				loadPrevNext: true,
+				loadPrevNextAmount: 2
+			},
+			pagination: {
+				el: slider.querySelector(".swiper-pagination") as HTMLElement,
+				type: "bullets",
+				clickable: true
+			},
+			on: {
+				lazyImageReady(){
+					const slider = this as Swiper;
+	
+					slider.update();
+				}
 			},
 			breakpoints: {
 				1200: {

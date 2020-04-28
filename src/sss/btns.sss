@@ -2,6 +2,8 @@
 	display: inline-flex
 	align-items: center
 	white-space: nowrap
+	justify-content: center
+	align-items: center
 	border-radius: 2px
 	border: 1px solid var(--main-color)
 	font-weight: 500
@@ -29,10 +31,10 @@
 	&:not(&--bordered)
 		color: #fff var(--main-color)
 
-		&:hover, &:focus
+		// &:hover, &:focus
 
-			&:not(:active)
-				background-color: lighten(#6c00ff, .3)
+		// 	&:not(:active)
+		// 		background-color: var(--hover-color)
 
 	&--bordered
 		color: var(--main-color) transparent

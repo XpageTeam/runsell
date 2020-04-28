@@ -8,6 +8,7 @@ import "./tabs";
 import domReady from './xpage/ready';
 import MobileMenu from './xpage/mobileMenu';
 import EventListener from './xpage/EventListener';
+import App from './xpage/core';
 
 declare global {
 	interface Window {
@@ -49,5 +50,14 @@ domReady(() => {
 		e.preventDefault();
 
 		window.$(".head__search-field").slideToggle(300);
-	})
+	});
+
+	new EventListener(".cat-sort__links select").add("change", function(select: HTMLSelectElement){
+		App.each(".cat-sort__links-link", function(el: HTMLLinkElement, index: number){
+			console.log(select.value, index);
+			if (parseInt(select.value) == index)
+				el.click();
+				// new EventListener(el).trigger("click");
+		});
+	});
 });

@@ -47,19 +47,31 @@
 		size: 20px
 		
 		&:not(.active)
-			background: url("../img/ico-plates.svg") no-repeat
+			// background: url("../img/ico-plates.svg") no-repeat
+
+			rect
+				fill: #E9EBEF
 
 		&.active
-			background: url("../img/ico-plates-active.svg") no-repeat
+			// background: url("../img/ico-plates-active.svg") no-repeat
+
+			rect
+				fill: var(--main-color)
 
 	&__list
 		size: 25px 20px
 		
 		&:not(.active)
-			background: url("../img/ico-list.svg") no-repeat
+			// background: url("../img/ico-list.svg") no-repeat
+
+			rect
+				fill: #E9EBEF
 
 		&.active
-			background: url("../img/ico-list-active.svg") no-repeat
+			// background: url("../img/ico-list-active.svg") no-repeat
+
+			rect
+				fill: var(--main-color)
 
 
 
@@ -115,7 +127,15 @@
 	.mobile-filter-btn
 		font-size: 0
 		border: none
-		size: 20px
+		size: 25px
 		display: block
-		background: url("../img/ico-filter.svg") center no-repeat
-		background-size: contain
+		background: none
+		// background: url("../img/ico-filter.svg") center no-repeat
+		// background-size: contain
+		padding: 0
+
+		circle
+			stroke: var(--main-color)
+		
+		path
+			fill: var(--main-color)

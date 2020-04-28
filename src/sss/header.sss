@@ -14,6 +14,7 @@
 	&__logo
 		flex: none
 		margin-right: 88px
+		max-width: 180px
 
 	&__menu
 		padding-right: 32px
@@ -49,10 +50,20 @@
 			transform-origin: left
 
 	&__el
-		padding-bottom: 9px
 
 		&:not(:last-child)
 			margin-right: vw(28.7)
+
+.logo
+	display: flex
+	height: 50px
+	align-items: center
+
+	img, svg
+		display: block
+		max-height: 100%
+		object-fit: contain
+		object-position: center
 
 .head-search
 	background: url("../img/ico-search.svg") no-repeat
@@ -114,3 +125,6 @@
 
 		&__logo
 			max-width: 120px
+
+	.logo
+		height: auto
