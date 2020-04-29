@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Главная - Runsell
+		include inc/head.pug
+		//- include inc/css.pug
+		link(rel="stylesheet" href="css/main-runsell.css")
+	body.main.loading
+		header.head
+			.wrapper
+				.head__wrap
+					.head__text 
+						.h-text 
+							h1 Создай свой интернет-магазин за 1 день
+					.head__contacts
+						.h-contacts
+							.h-contacts__item
+								.h-contacts__item-title Свяжитесь с нами
+								address.h-contacts__item-content
+									a(href="tel:89823644833") 8 982 364 48 33
+							.h-contacts__item
+								address.h-contacts__item-content
+									a(href="mailto:hello@runsell.ru") hello@runsell.ru
+					.head__btn
+						a.default-btn(href="#") Презентация сервиса
+		main#content
+			img(src="img/runsell-logo.svg")
+		//- include inc/scripts.pug

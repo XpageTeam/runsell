@@ -38,12 +38,12 @@
 
 	.bread-crumbs
 
-		&__this, &__link:not(:first-child)
+		&__this, &__link:not(:nth-last-child(2))
 			display: none
 
 		&__link
 
-			&:first-child
+			&:nth-last-child(2)
 
 				a
 					color: var(--main-color)
