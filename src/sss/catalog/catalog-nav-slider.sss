@@ -78,7 +78,8 @@
 
 		&-text
 			font-size: em(14)
-			line-height: calc(22 / 14)
+			line-height: calc(22 / 16)
+			font-weight: bold
 
 @media (max-width: 1200px) and (min-width: 660px)
 	.cat-nav
@@ -94,14 +95,14 @@
 	.cat-nav
 		margin: 0 -20px
 		overflow: hidden
-		position: relative
+		// position: relative
 
-		&:after
-			content: ""
-			position: absolute 0 * 0 0
-			z-index: 1
-			width: 20px
-			background-color: #fff
+		// &:after
+		// 	content: ""
+		// 	position: absolute 0 * 0 0
+		// 	z-index: 1
+		// 	width: 20px
+		// 	background-color: #fff
 
 		&__nav
 			display: none
@@ -109,6 +110,7 @@
 		&__slider
 			overflow: visible
 			margin: 0 30px
+			transform: translateX(-10px)
 
 		&__dots
 			display: block
@@ -120,7 +122,7 @@
 
 				&-bullet
 					size: 8px
-					margin: 10px 0 25px
+					margin: 20px 0
 
 					&:first-child:last-child
 						display: none
@@ -133,7 +135,10 @@
 		
 		&__slide
 			padding: 15px
-			font-size: 13px
+			font-size: 15px
 
 			&-img
 				margin-right: 10px
+
+			&-text
+				font-size: 1em

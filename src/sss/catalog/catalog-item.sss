@@ -178,20 +178,23 @@ body.inner
 
 		&__img
 			margin: 0
+			border: none !important
+			text-align: center
+			
+			img
+				max-width: 90%
 
 		&__title
-			font-size: em(10)
+			font-size: em(14)
 			margin: 0 0 7px
 
-		&__desc, &__btns
-			border-inline: 1px solid var(--border-color)
-			padding-inline: 10px
-
 		&__desc
-			padding-top: 15px
+			padding-top: 11px
 
 		&__btns
-			border-bottom: 1px solid var(--border-color)
+
+			.default-btn
+				font-weight: bold
 
 	.cat-price
 		font-size: em(14)

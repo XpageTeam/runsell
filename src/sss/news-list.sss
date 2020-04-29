@@ -14,16 +14,21 @@
 		max-width: 600px
 
 		&-title
-			font-size: em(20)
-			margin: 0 0 10px
-			display: block
+			font-size: em(16)
+			font-weight: bold
+
+			&:not(:hover)
+				border-bottom: 1px solid var(--main-color)
 
 		&-date
 			color: rgba(0, 0, 0, .5)
-			font-size: em(13)
+			font-size: em(14)
+			margin: 0 0 5px
 		
 		&-text
 			margin: 20px 0 0
+			color: rgba(0, 0, 0, .5)
+			font-size: em(14)
 
 .news-list
 
@@ -41,3 +46,8 @@
 			width: 100%
 			margin: 0 0 10px
 			display: block
+
+		&__desc
+
+			&-text
+				margin: 10px 0 0
