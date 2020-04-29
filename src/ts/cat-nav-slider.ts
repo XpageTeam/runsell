@@ -7,7 +7,9 @@ Swiper.use([Autoplay, Navigation, Pagination, Lazy]);
 domReady(() => {
 	const catNavSliders = App.transformNodeListToArray(App.getElements(".cat-nav"));
 
-	for (const slider of catNavSliders)
+	for (const slider of catNavSliders){
+		const slidesCount = slider.querySelectorAll(".swiper-slide").length;
+
 		new Swiper(slider.querySelector(".cat-nav__slider") as HTMLElement, {
 			loop: true,
 			spaceBetween: 20,
@@ -32,6 +34,12 @@ domReady(() => {
 				clickable: true
 			},
 			on: {
+				init(){
+					const slider = this as Swiper;
+
+					if (slidesCount < 5)
+						slider.lazy.load()
+				},
 				lazyImageReady(){
 					const slider = this as Swiper;
 	
@@ -54,4 +62,5 @@ domReady(() => {
 				}
 			}
 		});
+	}
 });
