@@ -26,5 +26,12 @@ html(lang="ru")
 						a.default-btn.default-btn--bordered(href="#") Демо версия сайта
 						a.default-btn(href="#") Презентация сервиса
 		main#content
+			.wrapper
+				.main-steps
+					each step in ["Посмотреть демоверсию сайта demo.runsell.ru", "Узнать подробнее о runsell из презентации", "Оставить заявку по почте или телефону 8 982 364 48 33", "Получить логин и пароль для входа в личный кабинет", "Заполнить карточки товаров и информацию о себе", "Оплатить доступ к платформе", "Запустить рекламу и получать первые заказы", ]
+						.main-steps__step
+							.ms-step
+								.ms-step__text=step
+		footer.footer
 			img(src="img/runsell-logo.svg")
 		//- include inc/scripts.pug

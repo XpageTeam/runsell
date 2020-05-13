@@ -37,7 +37,9 @@
 		line-height: calc(45 / 30)
 		font-weight: bold
 
-#content
+.footer
+	display: flex
+	flex-direction: column
 	align-items: flex-end
 
 	img
@@ -84,14 +86,67 @@
 				border-bottom: 1px solid currentColor
 				padding-bottom: 8px
 
+
+#content
+	justify-content: center
+
+	.wrapper
+		width: calc(100% - 40px)
+
+
+.main-steps
+	display: flex
+	counter-reset: i
+
+	&__step
+		width: calc(100% / 7)
+		counter-increment: i
+
+		&:last-child .ms-step:after
+			display: none
+
+.ms-step
+	display: flex
+	flex-direction: column
+	align-items: flex-start
+	padding-right: 20px
+	position: relative
+
+	&:after
+		content: ""
+		position: absolute 24px 0 *
+		border-top: 1px dashed var(--main-color)
+
+	&:before
+		content: counter(i)
+		text-align: center
+		position: relative
+		z-index: 2
+		border-radius: 50%
+		size: 49px
+		line-height: 54px
+		font-weight: bold
+		color: var(--second-color) var(--main-color)
+		margin: 0 0 20px
+
+	&__text
+		max-width: 150px
+		font-size: em(14)
+		line-height: calc(26 / 14)
+
 @media (max-width: 1500px) and (min-width: 1400px)
 	.head
-		padding: 60px 0 0
+		padding: 40px 0 0
 
 @media (max-width: 1400px)
 	.head
-		padding: 40px 0 0
+		padding: 30px 0 0
 		font-size: 15px
+
+	.footer
+
+		img
+			max-width: 80%
 
 @media (max-width: 1300px) and (min-width: 1100px)
 	.head
@@ -105,6 +160,17 @@
 
 			&:not(:last-child)
 				margin-right: 40px
+
+@media (max-width: 1200px) and (min-width: 1000px)
+	.main-steps
+		flex-wrap: wrap
+		justify-content: center
+		margin: 0 0 -30px
+
+		&__step
+			width: calc(100% / 4)
+			flex: 1 1 auto
+			margin: 0 0 30px
 
 @media (max-width: 1100px)
 	.head
@@ -123,8 +189,8 @@
 
 @media (max-width: 1000px)
 	body
-		position: fixed 0
-		overflow: auto
+		// position: fixed 0
+		// overflow: auto
 		background: none
 		min-height: 0
 
@@ -169,6 +235,31 @@
 
 	#content
 		flex: none
+		padding-bottom: 30px
+
+	.main-steps
+		flex-wrap: wrap
+		margin: 0 0 -25px
+
+		&__step
+			width: calc(100% / 3)
+			flex: 1 1 auto
+			margin: 0 0 25px
+
+	.ms-step
+		flex-direction: row
+
+		&:before
+			margin: 0 20px 0 0
+			size: 30px
+			flex: none
+			line-height: 36px
+
+		&:after
+			display: none
+
+		&__text
+			max-width: none
 
 @media (max-width: 660px)
 	.head
@@ -187,13 +278,14 @@
 		&__text
 			flex: 1 1 auto
 			display: flex
+			margin: 30px 0 0
 			flex-direction: column-reverse
 
 		&__btn
 			flex: 1 1 auto
 			order: 2
 			text-align: center
-			margin: 20px 0 0
+			margin: 20px 0 30px
 			display: block
 
 			.default-btn
@@ -208,3 +300,12 @@
 
 			&:not(:last-child)
 				margin-right: 15px
+	
+	.main-steps
+		flex-wrap: wrap
+		margin: 0 0 -25px
+
+		&__step
+			width: calc(100% / 1)
+			flex: 1 1 auto
+			margin: 0 0 25px
